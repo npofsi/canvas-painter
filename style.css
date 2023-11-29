@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+
+body {
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 canvas {
@@ -11,14 +17,15 @@ canvas {
     cursor: url("./assets/pencil.svg") 0 24,url("./assets/pencil.svg"),auto ;
 }
 
-img {
+#clearBtn {
     position: absolute;
     bottom: 30px;
     right: 30px;
     opacity: .3;
+    background-image: url("./assets/clear.png");
 }
 
-img:hover {
+#clearBtn:hover {
     cursor: pointer;
     opacity: .5;
 }
