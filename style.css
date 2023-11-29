@@ -17,6 +17,17 @@ canvas {
     cursor: url("./assets/pencil.svg") 0 24,url("./assets/pencil.svg"),auto ;
 }
 
+#debugInfo{
+    min-width: 300px;
+    position: fixed;
+    bottom: 10px;
+    background-color: rgba(255,0,0,0.1);
+    color:rgba(0,0,0,0.6);
+    overflow: scroll;
+    text-align: end;
+    z-index: 100;
+}
+
 #clearBtn {
     position: absolute;
     bottom: 30px;

@@ -33,16 +33,26 @@ ctx.strokeStyle = "#f52443";
 let isDrawing = false;
 let last;
 
-if (isMobile) {
+function debugInfo(info){
+
+  let now = new Date();
+  document.getElementById("debugInfo").innerHTML+=("<br/>["+now.getMilliseconds()+"]"+info);
+}
+debugInfo("hello")
+
+if (true) {
   canvas.ontouchstart = (e) => {
-    last = [e.touches[0].clientX, e.touches[0].clientY];
+    debugInfo("touchStart")
+
+    //last = [e.touches[0].clientX, e.touches[0].clientY];
   };
   canvas.ontouchmove = (e) => {
-    drawLine(last[0], last[1], e.touches[0].clientX, e.touches[0].clientY);
-    last = [e.touches[0].clientX, e.touches[0].clientY];
+    //debugInfo("touchMove")
+    //drawLine(last[0], last[1], e.touches[0].clientX, e.touches[0].clientY);
+    //last = [e.touches[0].clientX, e.touches[0].clientY];
   };
-} else {
   canvas.onpointermove = (e) => {
+    //debugInfo(`pointermove[${e.pointerType}]`)
     ctx.lineWidth = getLineWidth(e);
     if (isDrawing) {
       drawLine(last[0], last[1], e.clientX, e.clientY);
@@ -51,14 +61,30 @@ if (isMobile) {
   };
 
   canvas.onpointerdown = (e) => {
+    debugInfo("pointerdown"+e.pointerType)
     isDrawing = true;
     last = [e.clientX, e.clientY];
   };
 
-  canvas.onpointerup = () => {
+  canvas.onpointerup = (e) => {
+    debugInfo("pointerup"+e.pointerType)
     isDrawing = false;
   };
+
+  canvas.onpointerover = (e) =>{
+    debugInfo(`pointerover[${e.pointerType}]`)
+  }
+
+  canvas.onpointerleave = (e)=>{
+    debugInfo(`pointerleave[${e.pointerType}]`)
+  }
+
+  canvas.onpointercancel = (e) => {
+    debugInfo(`pointercancel[${e.pointerType}]`)
+  }
 }
+
+
 
 // 清空画布
 clearBtn.addEventListener("click", () => {
