@@ -1,3 +1,14 @@
+# Fork for dev validation on canvas
+Validations:
+
+- [x] Work with iPad pressure(But can lose the focus occasionally)
+- [x] Set all elements unselectable
+- [ ] pen acc impl
+- [ ] pen stylus impl
+
+
+#fork
+
 # Drawing 简介
 Drawing是一款基于Canvas的Web绘图应用，支持压感，可用数位板绘图。此应用没有依赖第三方库。目前很多功能还在完善中。
 
